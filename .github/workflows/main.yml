@@ -1,14 +1,19 @@
-name: Trigger Cloudflare Pages Deploy Hook
+name: Trigger Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
 
 jobs:
-  trigger-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Trigger Cloudflare Deploy Hook
         run: curl -d "" ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
