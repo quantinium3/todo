@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Trigger Cloudflare Deploy Hook
-        run: curl -X POST ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        run: curl -d "" ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
